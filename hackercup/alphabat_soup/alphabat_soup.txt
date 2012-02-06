@@ -1,0 +1,21 @@
+Case #1: 11
+Case #2: 76
+Case #3: 1
+Case #4: 17
+Case #5: 2
+Case #6: 75
+Case #7: 1
+Case #8: 53
+Case #9: 19
+Case #10: 19
+Case #11: 82
+Case #12: 0
+Case #13: 47
+Case #14: 1
+Case #15: 30
+Case #16: 4
+Case #17: 0
+Case #18: 52
+Case #19: 53
+Case #20: 58
+
