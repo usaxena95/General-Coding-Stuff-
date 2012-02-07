@@ -5,13 +5,31 @@
 
 using namespace std;
 
-int n,p,a[20][20];
+int a[20][20];
 
-int one(int * a,int b,int c)
+int b2d(int n)
+{
+//	printf("%d\n",n);
+    int output = 0;
+    int rem=n%10;
+	int itr=0;
+	while((n)!=0)
+	{
+		output+=pow(2,itr)*rem;
+//		printf("%d",output);
+		itr++;
+		n/=10;
+		rem=n%10;
+	}
+	return output;
+}
+
+int one(int  a[][20],int b,int c)
 {
 	int i,j,count;
 	for(i=0;i<c;i++)
 	{
+		count = 0;
 		for(j=0;j<b;j++)
 		{
 			if(a[j][i]==1)
@@ -22,12 +40,13 @@ int one(int * a,int b,int c)
 		}
 		if(count==0)
 		{
-
-
+			return 0;
+		}
 	}
+	return 1;
 }
 
-int two(int *a,int b,int c)
+int two(int a[][20],int b,int c)
 {
 	int i,j,count;
 	for(i=0;i<b;i++)
@@ -38,10 +57,9 @@ int two(int *a,int b,int c)
 			if(a[i][j]==0)
 			{
 				count++;
-				break;
 			}
 		}
-		if(count==0)
+		if(count==c)
 		{
 			return 0;
 		}
@@ -50,7 +68,7 @@ int two(int *a,int b,int c)
 	return 1;
 }
 
-int three(int *a,int b,int c)
+int three(int a[][20],int b,int c)
 {
 	int i,j,count;
 	for(i=0;i<b;i++)
@@ -61,9 +79,9 @@ int three(int *a,int b,int c)
 			if(a[i][j]==1)
 			{
 				count++;
-				break;
 			}
 		}
+//		printf("%d\n",count);
 		if(count==c)
 		{
 			return 0;
@@ -74,7 +92,10 @@ int three(int *a,int b,int c)
 int main()
 {
 	int ans1,ans2,ans3;
-	int i,j;
+	int t,i,j,n,p,l;
+	scanf("%d",&t);
+	for(l=0;l<t;l++)
+	{
 	scanf("%d %d",&n,&p);
 	for(i=0;i<20;i++)
 	{
@@ -94,6 +115,9 @@ int main()
 	ans1=one(a,n,p);
 	ans2=two(a,n,p);
 	ans3=three(a,n,p);
-	printf("%d %d %d",ans1,ans2,ans3);
+//	printf("%d %d %d %d",ans1,ans2,ans3);
+
+	printf("Case %d: %d\n",l+1,b2d(ans1*100+ans2*10+ans3));
+	}
 	return 0;
 }
